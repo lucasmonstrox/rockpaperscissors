@@ -20,7 +20,7 @@ yarn
 ## Running the app
 
 ```bash
-yarn dev -l rock -r paper
+yarn dev play -l rock -r paper
 ```
 
 ## 🧪 Running tests per layer
