@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import { rockPaperScissorsCommand } from './commands/rockPaperScissors';
+import { rockPaperScissorsCommand } from './commands';
 
 export const makeCommander = () => {
   program
