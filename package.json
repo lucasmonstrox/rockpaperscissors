@@ -4,8 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/main",
     "dev": "ts-node-dev --respawn --transpile-only --clear src/main",
-    "test:layers:domain": "jest tests/layers/domain --no-cache --runInBand"
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint --fix",
+    "test:layers:domain": "jest tests/layers/domain --no-cache --runInBand",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "commander": "^10.0.0",
