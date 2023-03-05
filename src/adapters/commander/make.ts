@@ -1,18 +1,12 @@
-import { rockPaperScissorsUseCase } from '@/domain/useCases';
 import { program } from 'commander';
-import { makeObjectByChoice } from './factories/makeObjectByChoice';
+import { rockPaperScissorsCommand } from './commands/rockPaperScissors';
 
 export const makeCommander = () => {
-  program.option('-l <char>').option('-r <char>');
+  program
+    .command('play')
+    .description('Play Rock Paper Scissors choosing two times')
+    .option('-l <char>')
+    .option('-r <char>')
+    .action(rockPaperScissorsCommand);
   program.parse();
-  const options = program.opts();
-  const leftChoice = makeObjectByChoice(options.l);
-  const rightChoice = makeObjectByChoice(options.r);
-  const result = rockPaperScissorsUseCase({ leftChoice, rightChoice });
-  const isDraw = result === 'draw';
-  if (isDraw) {
-    console.log('💩🎉 ~ No one won, there was a draw');
-    process.exit();
-  }
-  console.log(`🎉 ~ The winner is:`, result.name);
 };
